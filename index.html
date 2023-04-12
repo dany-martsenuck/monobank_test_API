@@ -1,35 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Monobank Payment Form</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monobank Acquiring API Demo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+        }
+
+        #payment-btn {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #payment-success-msg {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-	<h1>Monobank Payment Form</h1>
-	<form id="payment-form">
-		<label for="invoiceId">Invoice ID:</label>
-		<input type="text" name="invoiceId" id="invoiceId"><br><br>
-		<label for="amount">Amount:</label>
-		<input type="text" name="amount" id="amount"><br><br>
-		<label for="description">Description:</label>
-		<input type="text" name="description" id="description"><br><br>
-		<label for="email">Email:</label>
-		<input type="email" name="email" id="email"><br><br>
-		<label for="phone">Phone:</label>
-		<input type="tel" name="phone" id="phone"><br><br>
-		<label for="cardNumber">Card number:</label>
-		<input type="text" name="cardNumber" id="cardNumber"><br><br>
-		<label for="cardExpMonth">Expiration month:</label>
-		<input type="text" name="cardExpMonth" id="cardExpMonth"><br><br>
-		<label for="cardExpYear">Expiration year:</label>
-		<input type="text" name="cardExpYear" id="cardExpYear"><br><br>
-		<label for="cardCvv">CVV:</label>
-		<input type="text" name="cardCvv" id="cardCvv"><br><br>
-		<button type="submit" id="pay-button">Pay</button>
-	</form>
-	<div id="response"></div>
-	<script src="main.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4">Make Payment</h5>
+                        <form id="payment-form">
+                            <div class="form-group">
+                                <label for="invoiceId">Invoice ID</label>
+                                <input type="text" class="form-control" id="invoiceId" name="invoiceId" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">Amount (in cents)</label>
+                                <input type="number" class="form-control" id="amount" name="amount" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="payment-btn">Pay Now</button>
+                        </form>
+                        <div id="payment-success-msg">
+                            <hr>
+                            <h6 class="card-subtitle mb-2 text-success">Payment successful!</h6>
+                            <p class="card-text">Your payment of <strong><span id="final-amount"></span> cents</strong> has been successfully processed.</p>
+                            <p class="card-text">Transaction ID: <strong><span id="transaction-id"></span></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
 </body>
 </html>
