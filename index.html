@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Monobank Payment Form</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h1>Monobank Payment Form</h1>
+	<form id="payment-form">
+		<label for="invoiceId">Invoice ID:</label>
+		<input type="text" name="invoiceId" id="invoiceId"><br><br>
+		<label for="amount">Amount:</label>
+		<input type="text" name="amount" id="amount"><br><br>
+		<label for="description">Description:</label>
+		<input type="text" name="description" id="description"><br><br>
+		<label for="email">Email:</label>
+		<input type="email" name="email" id="email"><br><br>
+		<label for="phone">Phone:</label>
+		<input type="tel" name="phone" id="phone"><br><br>
+		<label for="cardNumber">Card number:</label>
+		<input type="text" name="cardNumber" id="cardNumber"><br><br>
+		<label for="cardExpMonth">Expiration month:</label>
+		<input type="text" name="cardExpMonth" id="cardExpMonth"><br><br>
+		<label for="cardExpYear">Expiration year:</label>
+		<input type="text" name="cardExpYear" id="cardExpYear"><br><br>
+		<label for="cardCvv">CVV:</label>
+		<input type="text" name="cardCvv" id="cardCvv"><br><br>
+		<button type="submit" id="pay-button">Pay</button>
+	</form>
+	<div id="response"></div>
+	<script src="main.js"></script>
+</body>
+</html>
